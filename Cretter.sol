@@ -206,7 +206,7 @@ contract StatementBank {
             // Variable reward: the earlier you voted the more you deserve a full reward
             
             // uint256 questVoterReward = 2000000000000000 * (1 - (questVoteIndex / questLen)); // in wei
-            uint256 questVoterReward = uint256(2000000000000000).mul( uint256(1).sub( (questVoteIndex).div(questLen) ) );
+            uint256 questVoterReward = uint256(2000000000000000).sub( uint256(2000000000000000).mul(questVoteIndex).div(questLen) );
             
             address(questionerRankingWinner).transfer(questVoterReward);
             
@@ -222,7 +222,7 @@ contract StatementBank {
             address staterRankingWinner = votedForStater[firstQuestioner][staterVoteIndex];
 
             
-            uint256 stateVoterReward = uint256(2000000000000000).mul( uint256(1).sub( (staterVoteIndex).div(stateLen) ));
+            uint256 stateVoterReward = uint256(2000000000000000).sub( uint256(2000000000000000).mul(staterVoteIndex).div(stateLen) );
             address(staterRankingWinner).transfer(stateVoterReward);
         }
         
