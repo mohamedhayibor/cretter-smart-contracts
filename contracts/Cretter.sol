@@ -1,4 +1,4 @@
-pragma solidity ^0.4.26;
+pragma solidity ^0.5.16;
 
 library CheckOverflows {
     function add(uint256 n1, uint256 n2) internal pure returns(uint256 n3) {
@@ -49,7 +49,7 @@ library CheckOverflows {
 contract StatementBank {
     using CheckOverflows for uint256;
     
-    address public stater; // owner
+    address payable public stater; // owner
 
     uint256 public firstQuestioner;
     uint256 public lastQuestioner;
@@ -90,7 +90,7 @@ contract StatementBank {
     // questioners order and votes on each on those question
     // 1st arg: _questionIndex
     // result: questioner's address
-    mapping (uint256 => address) public questioners;
+    mapping (uint256 => address payable) public questioners;
     
 
     // (2): questioner asks a question
@@ -144,8 +144,8 @@ contract StatementBank {
     mapping (uint256 => mapping (address => uint256)) public hasAlreadyVoted;
     
     // mapping to mainly reward the lucky voter who got it right
-    mapping (uint256 => address[]) votedForStater;
-    mapping (uint256 => address[]) votedForQuestioner;
+    mapping (uint256 => address payable[]) votedForStater;
+    mapping (uint256 => address payable[]) votedForQuestioner;
     
     // (4): voting
     // Vote answer on question, binary:
@@ -201,7 +201,7 @@ contract StatementBank {
             // reward a random ranker who betted on questioner
             uint256 questLen = votedForQuestioner[firstQuestioner].length;
             uint256 questVoteIndex = random(questLen);
-            address questionerRankingWinner = votedForQuestioner[firstQuestioner][questVoteIndex];
+            address payable questionerRankingWinner = votedForQuestioner[firstQuestioner][questVoteIndex];
             
             // Variable reward: the earlier you voted the more you deserve a full reward
             
@@ -219,7 +219,7 @@ contract StatementBank {
             
             uint256 stateLen = votedForStater[firstQuestioner].length;
             uint256 staterVoteIndex = random(stateLen);
-            address staterRankingWinner = votedForStater[firstQuestioner][staterVoteIndex];
+            address payable staterRankingWinner = votedForStater[firstQuestioner][staterVoteIndex];
 
             
             uint256 stateVoterReward = uint256(2000000000000000).sub( uint256(2000000000000000).mul(staterVoteIndex).div(stateLen) );
