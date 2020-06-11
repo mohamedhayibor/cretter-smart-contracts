@@ -1,0 +1,24 @@
+{
+  "name": "cretter-smart-contracts",
+  "version": "0.0.0",
+  "description": "Cretter testing",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "truffle test --network development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohamedhayibor/cretter-smart-contracts.git"
+  },
+  "author": "Mo",
+  "bugs": {
+    "url": "https://github.com/mohamedhayibor/cretter-smart-contracts/issues"
+  },
+  "homepage": "https://github.com/mohamedhayibor/cretter-smart-contracts#readme",
+  "dependencies": {
+    "ether.js": "^1.0.0"
+  }
+}
