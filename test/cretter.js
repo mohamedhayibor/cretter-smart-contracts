@@ -6,6 +6,8 @@ contract('Cretter', (accounts) => {
 
     const contractBalance = await cretterInstance.statementBankBalance.call()
 
+    console.log("ContractBalance: ", contractBalance);
+
     // assert.equal(contractBalance, 
   })
 

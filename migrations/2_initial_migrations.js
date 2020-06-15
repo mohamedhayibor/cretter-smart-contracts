@@ -1,5 +1,5 @@
-const Cretter = artifacts.require("Cretter");
+const StatementBank = artifacts.require("StatementBank");
 
 module.exports = function (deployer) {
-  deployer.deploy(Cretter);
+  deployer.deploy(StatementBank);
 }
